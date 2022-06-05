@@ -10,7 +10,7 @@ import {
   CustomUidUsage,
 } from './payment.enum';
 
-interface PaymentRequest {
+export interface PaymentRequest {
   pg: string;
   pay_method: string;
   merchant_uid: string;
@@ -23,13 +23,13 @@ interface PaymentRequest {
   buyer_postcode: string;
 }
 
-interface PaymentResponse {
+export interface PaymentResponse {
   code: number;
   message: string;
-  response: Payment;
+  response: PaymentInterface;
 }
 
-interface Payment {
+export interface PaymentInterface {
   imp_uid: string;
   merchant_uid: string;
   pay_method: PayMethod;
@@ -38,21 +38,21 @@ interface Payment {
   emb_pg_provider: EmbPgProvider;
   pg_tid: string;
   pg_id: string;
-  escrow: true;
-  apply_num: string;
-  bank_code: string;
-  bank_name: string;
+  escrow: boolean;
+  apply_num: string | null;
+  bank_code: string | null;
+  bank_name: string | null;
   card_code: CardCode;
-  card_name: string;
-  card_quota: number;
-  card_number: string;
+  card_name: string | null;
+  card_quota: number | null;
+  card_number: string | null;
   card_type: CardType | null;
-  vbank_code: string;
-  vbank_name: string;
-  vbank_num: string;
-  vbank_holder: string;
-  vbank_date: number;
-  vbank_issued_at: number;
+  vbank_code: string | null;
+  vbank_name: string | null;
+  vbank_num: string | null;
+  vbank_holder: string | null;
+  vbank_date: number | null;
+  vbank_issued_at: number | null;
   name: string;
   amount: number;
   cancel_amount: number;
@@ -63,23 +63,23 @@ interface Payment {
   buyer_addr: string;
   buyer_postcode: string;
   custom_data: string;
-  user_agent: string;
+  user_agent: string | null;
   status: Status;
-  started_at: number;
-  paid_at: number;
-  failed_at: number;
-  cancelled_at: number;
-  fail_reason: string;
+  started_at: number | null;
+  paid_at: number | null;
+  failed_at: number | null;
+  cancelled_at: number | null;
+  fail_reason: string | null;
   cancel_reason: string;
   receipt_url: string;
-  cancel_history: CancelHistory[];
+  cancel_history: CancelHistory[] | null;
   cancel_receipt_urls: string[];
   cash_receipt_issued: boolean;
   customer_uid: string | null;
   customer_uid_usage: CustomUidUsage | null;
 }
 
-interface CancelHistory {
+export interface CancelHistory {
   pg_tid: string;
   amount: number;
   cancelled_at: number;
