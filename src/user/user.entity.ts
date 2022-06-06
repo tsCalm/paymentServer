@@ -10,7 +10,7 @@ import {
 } from 'typeorm';
 import { BaseEntity } from '../common/base.entity';
 
-// 결제 시스템 유저는 최대한 간단하게 로그인 및 어떤 유저가 결제를 진행했는지 구분하기 위한 용도
+// 결제 시스템 관리자 페이지 접속 유저, 결제를 진행하는 유저가 아님
 @Entity()
 export class User extends BaseEntity {
   @PrimaryGeneratedColumn()

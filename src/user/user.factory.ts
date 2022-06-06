@@ -4,6 +4,5 @@ import { User } from './user.entity';
 
 define(User, (faker: Faker) => {
   const user = new User();
-
   return user;
 });
