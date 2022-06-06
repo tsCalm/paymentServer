@@ -20,6 +20,7 @@ import {
   CustomUidUsage,
 } from './payment.enum';
 import { CancelHistory, PaymentInterface } from './payment.type';
+
 @Entity()
 export class Payment extends BaseEntity implements PaymentInterface {
   @Column({
@@ -85,19 +86,19 @@ export class Payment extends BaseEntity implements PaymentInterface {
     type: 'varchar',
     default: null,
   })
-  apply_num: string;
+  apply_num: string | null;
 
   @Column({
     type: 'varchar',
     default: null,
   })
-  bank_code: string;
+  bank_code: string | null;
 
   @Column({
     type: 'varchar',
     default: null,
   })
-  bank_name: string;
+  bank_name: string | null;
 
   @Column({
     type: 'enum',
@@ -109,62 +110,62 @@ export class Payment extends BaseEntity implements PaymentInterface {
     type: 'varchar',
     default: null,
   })
-  card_name: string;
+  card_name: string | null;
 
   @Column({
     type: 'tinyint',
     default: null,
   })
-  card_quota: number;
+  card_quota: number | null;
 
   @Column({
     type: 'tinyint',
     default: null,
   })
-  card_number: string;
+  card_number: string | null;
 
   @Column({
     type: 'enum',
     enum: CardType,
     default: null,
   })
-  card_type: CardType;
+  card_type: CardType | null;
 
   @Column({
     type: 'varchar',
     default: null,
   })
-  vbank_code: string;
+  vbank_code: string | null;
 
   @Column({
     type: 'varchar',
     default: null,
   })
-  vbank_name: string;
+  vbank_name: string | null;
 
   @Column({
     type: 'varchar',
     default: null,
   })
-  vbank_num: string;
+  vbank_num: string | null;
 
   @Column({
     type: 'varchar',
     default: null,
   })
-  vbank_holder: string;
+  vbank_holder: string | null;
 
   @Column({
     type: 'varchar',
     default: null,
   })
-  vbank_date: number;
+  vbank_date: number | null;
 
   @Column({
     type: 'varchar',
     default: null,
   })
-  vbank_issued_at: number;
+  vbank_issued_at: number | null;
 
   @Column({
     type: 'varchar',
@@ -223,7 +224,7 @@ export class Payment extends BaseEntity implements PaymentInterface {
     type: 'varchar',
     default: null,
   })
-  user_agent: string;
+  user_agent: string | null;
 
   @Column({
     type: 'enum',
@@ -236,37 +237,37 @@ export class Payment extends BaseEntity implements PaymentInterface {
     type: 'int',
     default: null,
   })
-  started_at: number;
+  started_at: number | null;
 
   @Column({
     type: 'int',
     default: null,
   })
-  paid_at: number;
+  paid_at: number | null;
 
   @Column({
     type: 'int',
     default: null,
   })
-  failed_at: number;
+  failed_at: number | null;
 
   @Column({
     type: 'int',
     default: null,
   })
-  cancelled_at: number;
+  cancelled_at: number | null;
 
   @Column({
     type: 'varchar',
     default: null,
   })
-  fail_reason: string;
+  fail_reason: string | null;
 
   @Column({
     type: 'varchar',
     default: null,
   })
-  cancel_reason: string;
+  cancel_reason: string | null;
 
   @Column({
     type: 'varchar',

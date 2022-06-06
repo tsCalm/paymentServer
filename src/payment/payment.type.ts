@@ -70,7 +70,7 @@ export interface PaymentInterface {
   failed_at: number | null;
   cancelled_at: number | null;
   fail_reason: string | null;
-  cancel_reason: string;
+  cancel_reason: string | null;
   receipt_url: string;
   cancel_history: CancelHistory[] | null;
   cancel_receipt_urls: string[];
