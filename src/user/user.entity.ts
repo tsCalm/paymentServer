@@ -30,7 +30,7 @@ export class User extends BaseEntity {
 
   @Column()
   @Generated('uuid')
-  acceccKey: string;
+  accessKey: string;
 
   @Column()
   @Generated('uuid')

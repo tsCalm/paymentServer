@@ -36,6 +36,23 @@ export class UserService {
     }
   }
 
+  async findOneByKeyValue(accessKey: string, secretKey: string): Promise<User> {
+    try {
+      const user: User = await this.userRepository.findOne({
+        where: {
+          accessKey,
+          secretKey,
+        },
+        select: ['password', 'email', 'id', 'accessKey', 'secretKey'],
+      });
+      console.log(user);
+      if (!user) throw new Error('not found accessKey or secretKey');
+      return user;
+    } catch (err) {
+      new IError(HttpStatus.BAD_REQUEST, err.message);
+    }
+  }
+
   async create() {
     return null;
   }

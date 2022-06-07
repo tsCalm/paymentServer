@@ -64,4 +64,18 @@ export class AuthService {
       return new IError(HttpStatus.BAD_REQUEST, err.message);
     }
   };
+
+  getAccessToekn = async (accessKey: string, secretKey: string) => {
+    try {
+      const user = await this.userService.findOneByKeyValue(
+        accessKey,
+        secretKey,
+      );
+      const token = await this.generateJwtTokens(user.id, user.email);
+
+      return token;
+    } catch (err) {
+      return new IError(HttpStatus.BAD_REQUEST, err.message);
+    }
+  };
 }
