@@ -7,6 +7,7 @@ import {
   CreateDateColumn,
   UpdateDateColumn,
   PrimaryGeneratedColumn,
+  Generated,
 } from 'typeorm';
 import { BaseEntity } from '../common/base.entity';
 
@@ -25,6 +26,14 @@ export class User extends BaseEntity {
     type: 'varchar',
   })
   password: string;
+
+  @Column()
+  @Generated('uuid')
+  accecc_key: string;
+
+  @Column()
+  @Generated('uuid')
+  secret_key: string;
 
   @CreateDateColumn()
   createdAt?: Date;
