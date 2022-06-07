@@ -6,6 +6,7 @@ import { typeOrmConfigAsync } from './config/typeorm.config';
 import { ConfigModule } from '@nestjs/config';
 import { paymentModule } from './payment/payment.module';
 import { userModule } from './user/user.module';
+import { authModule } from './auth/auth.module';
 
 @Module({
   imports: [
@@ -18,6 +19,7 @@ import { userModule } from './user/user.module';
     TypeOrmModule.forRootAsync(typeOrmConfigAsync),
     paymentModule,
     userModule,
+    authModule,
   ],
   controllers: [AppController],
   providers: [AppService],

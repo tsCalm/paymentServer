@@ -24,16 +24,17 @@ export class User extends BaseEntity {
 
   @Column({
     type: 'varchar',
+    select: false,
   })
   password: string;
 
   @Column()
   @Generated('uuid')
-  accecc_key: string;
+  acceccKey: string;
 
   @Column()
   @Generated('uuid')
-  secret_key: string;
+  secretKey: string;
 
   @CreateDateColumn()
   createdAt?: Date;

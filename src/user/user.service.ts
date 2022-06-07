@@ -1,12 +1,15 @@
 import { HttpStatus, Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
+import { Repository } from 'typeorm';
+import { IError } from '../common/type';
+import { User } from './user.entity';
 
 @Injectable()
 export class UserService {
-  // constructor(
-  // @InjectRepository(Payment)
-  // private readonly paymentRepository: Repository<Payment>,
-  // ) {}
+  constructor(
+    @InjectRepository(User)
+    private readonly userRepository: Repository<User>,
+  ) {}
 
   async findAll() {
     return null;
@@ -14,6 +17,23 @@ export class UserService {
 
   async findOne() {
     return null;
+  }
+
+  async findOneByEmail(
+    email: string,
+    // options?: FindOneOptions<Admin>,
+  ): Promise<User> {
+    try {
+      const user: User = await this.userRepository.findOne({
+        where: {
+          email,
+        },
+        select: ['password', 'email', 'id'],
+      });
+      return user;
+    } catch (err) {
+      new IError(HttpStatus.BAD_REQUEST, err.message);
+    }
   }
 
   async create() {
